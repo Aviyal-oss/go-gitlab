@@ -47,6 +47,8 @@ type Project struct {
 	HTTPURLToRepo                             string             `json:"http_url_to_repo"`
 	WebURL                                    string             `json:"web_url"`
 	ReadmeURL                                 string             `json:"readme_url"`
+	LicenseURL                                string             `json:"license_url"`
+	ProjectLicense                            *ProjectLicense    `json:"license"`
 	TagList                                   []string           `json:"tag_list"`
 	Owner                                     *User              `json:"owner"`
 	Name                                      string             `json:"name"`
@@ -169,6 +171,15 @@ type ProjectAccess struct {
 type GroupAccess struct {
 	AccessLevel       AccessLevelValue       `json:"access_level"`
 	NotificationLevel NotificationLevelValue `json:"notification_level"`
+}
+
+// ProjectLicense project license data.
+type ProjectLicense struct {
+	HtmlUrl   *string `json:"html_url"`
+	Key       *string `json:"key"`
+	Name      *string `json:"name"`
+	Nickname  *string `json:"nickname"`
+	SourceUrl *string `json:"source_url"`
 }
 
 // ForkParent represents the parent project when this is a fork.
